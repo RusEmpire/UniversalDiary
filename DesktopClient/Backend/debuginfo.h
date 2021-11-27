@@ -5,6 +5,8 @@
 #include <QDebug>
 #include <QFile>
 
+
+// type of messages
 enum MessageType{
     INFO,
     WARNING,
@@ -12,6 +14,8 @@ enum MessageType{
     FATAL,
 };
 
+// Singleton for Debug and Logging
+// can write in log file and display in qDebug
 class DebugInfo
 {
 private:
@@ -21,7 +25,7 @@ private:
     static DebugInfo* log;
 
     DebugInfo() {}
-    DebugInfo( const DebugInfo&);
+    DebugInfo(const DebugInfo&);
     DebugInfo& operator=(DebugInfo&);
     ~DebugInfo();
 
@@ -30,9 +34,8 @@ private:
 public:
     static DebugInfo* Debug();
 
-    // only for connections
+    // CheckConnect - check QOb connections
     void CheckConnect(bool ok, QString info = "");
-    // log files
     void WriteToLog(QString info, MessageType type = INFO);
 };
 
