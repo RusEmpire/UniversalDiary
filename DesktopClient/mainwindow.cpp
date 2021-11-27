@@ -6,6 +6,10 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
+    bool ok = true;
+    ok &= static_cast<bool>(QObject::connect(ui->About, SIGNAL(triggered()),
+                                             this, SLOT(OnAbout())));
 }
 
 MainWindow::~MainWindow()
@@ -13,3 +17,6 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+void MainWindow::OnAbout(){
+
+}
