@@ -6,10 +6,15 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    // fill info about new session
+    // when open app
+    DebugInfo::Debug()->WriteToLog("New Session", INFO);
 
     bool ok = true;
     ok &= static_cast<bool>(QObject::connect(ui->About, SIGNAL(triggered()),
                                              this, SLOT(OnAbout())));
+
+    DebugInfo::Debug()->CheckConnect(ok, QString("MainWindow"));
 }
 
 MainWindow::~MainWindow()
@@ -18,5 +23,6 @@ MainWindow::~MainWindow()
 }
 
 void MainWindow::OnAbout(){
-
+    About* about = new About();
+    about->show();
 }

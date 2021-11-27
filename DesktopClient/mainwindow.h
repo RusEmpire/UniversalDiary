@@ -3,6 +3,9 @@
 
 #include <QMainWindow>
 
+#include "Backend/debuginfo.h"
+#include "Gui/about.h"
+
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
